@@ -1,0 +1,61 @@
+@import 'fonts';
+@import 'variables';
+@import 'libs/normalize';
+
+@import 'components/all';
+
+body {
+  background: $background;
+  color: #ffffff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 100vh;
+}
+
+.wrapper {
+  max-width: 1260px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: auto;
+  @include sm_block {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+hr {
+  background: #ffffff;
+  height: 2px;
+  width: 100%;
+}
+
+.titleBlock {
+  font-size: 56px;
+  line-height: 1.2em;
+}
+
+.button {
+  display: block;
+  border-radius: 50px;
+  background: #ffffff;
+  padding: 6px 22px;
+  font-size: 22px;
+  font-weight: 700;
+  transition: all 0.12s ease-in-out;
+  &:hover {
+    background: #000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+  }
+  &:active {
+    transform: translateY(4px);
+  }
+}
+
+.loadingText {
+  text-align: center;
+}

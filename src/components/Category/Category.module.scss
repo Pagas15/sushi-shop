@@ -1,0 +1,24 @@
+.category {
+  display: flex;
+  :global {
+    .active {
+      background: #fff;
+      color: #323232;
+    }
+  }
+  &__item {
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__btn {
+    background: transparent;
+    border-color: #fff !important;
+    color: #fff;
+
+    &:hover {
+      background: #323232;
+    }
+  }
+}
