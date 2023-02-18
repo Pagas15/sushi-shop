@@ -1,0 +1,23 @@
+.authorisation {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  .titleBlock {
+    // text-align: center;
+    font-size: 62px;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__item {
+    width: 100%;
+    max-width: 380px;
+    // margin-left: 27%;
+  }
+  &__otherMethod {
+    margin-top: 60px;
+    max-width: 420px;
+  }
+}

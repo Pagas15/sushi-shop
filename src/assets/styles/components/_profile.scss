@@ -1,0 +1,16 @@
+.profile {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .productItem__title {
+    margin-bottom: 20px;
+  }
+  .button--square {
+    max-width: 320px;
+  }
+  .imageBlock {
+    margin-bottom: 20px;
+  }
+}
