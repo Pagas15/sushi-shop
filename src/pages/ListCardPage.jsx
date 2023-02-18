@@ -5,6 +5,7 @@ import Category from '../components/Category';
 import ProductCard from '../components/Product/ProductCard';
 import Sort from '../components/Sort';
 import TitleBLock from '../components/TitleBlock';
+import { addToCart } from '../store/slices/cartSlice';
 import { fetchSushi } from '../store/slices/sushiSlice';
 
 const ListCardPage = () => {
@@ -35,7 +36,12 @@ const ListCardPage = () => {
   }, [category, sort]);
 
   const listSushiComponent = listSushi.map((item) => {
-    return <ProductCard key={item.id} {...item} modifier="products__item" />;
+    const onClickAdd = () => {
+      dispatch(addToCart(item));
+    };
+    return (
+      <ProductCard onClickAdd={onClickAdd} key={item.id} {...item} modifier="products__item" />
+    );
   });
 
   return (

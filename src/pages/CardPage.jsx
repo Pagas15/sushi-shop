@@ -1,13 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
+import { addToCart } from '../store/slices/cartSlice';
 import { API_SUSHI } from '../utill/consts';
 
 const CardPage = () => {
   const [sushi, setSushi] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios
@@ -25,6 +28,10 @@ const CardPage = () => {
     return <Loading />;
   }
 
+  const onClickAdd = () => {
+    dispatch(addToCart(sushi));
+  };
+
   return (
     <section className="cardPage">
       <div className="cardPage__wrapper wrapper">
@@ -35,7 +42,9 @@ const CardPage = () => {
           <h2 className="cardPage__title">{sushi.title}</h2>
           <p className="cardPage__description">{sushi.description}</p>
           <div className="cardPage__sumsInfo">Weight: {sushi.weight} g.</div>
-          <button className="button cardPage__btn">Add to cart</button>
+          <button className="button cardPage__btn" onClick={onClickAdd}>
+            Add to cart
+          </button>
         </div>
       </div>
     </section>

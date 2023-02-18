@@ -1,7 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ProductCard = ({ id, title, weight, description, price, imageUrl, modifier = null }) => {
+const ProductCard = ({
+  id,
+  title,
+  weight,
+  description,
+  price,
+  imageUrl,
+  modifier = null,
+  onClickAdd,
+}) => {
   return (
     <li className={`productItem ${!!modifier && modifier}`}>
       <Link to={`/products/${id}`}>
@@ -22,7 +31,9 @@ const ProductCard = ({ id, title, weight, description, price, imageUrl, modifier
           </p>
         </Link>
         <div className="productItem__bottom">
-          <button className="button productItem__btn">In cart</button>
+          <button className="button productItem__btn" onClick={onClickAdd}>
+            In cart
+          </button>
           <h3 className="productItem__price">{price} $</h3>
         </div>
       </div>

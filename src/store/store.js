@@ -14,8 +14,9 @@ import storage from 'redux-persist/lib/storage';
 import filterSlice from './slices/filterSlice';
 import sushiSlice from './slices/sushiSlice';
 import userSlice from './slices/userSlice';
+import cartSlice from './slices/cartSlice';
 
-const reducer = { sushi: sushiSlice, filters: filterSlice, user: userSlice };
+const reducer = { sushi: sushiSlice, filters: filterSlice, user: userSlice, cart: cartSlice };
 
 const rootReducer = combineReducers(reducer);
 

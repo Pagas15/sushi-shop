@@ -1,18 +1,21 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import image from '../assets/img/logo.png';
 import { useAuth } from '../hooks/use-auth';
+import { selectCart } from '../store/slices/cartSlice';
 import Navigation from './Navigation';
 
 const Header = () => {
   const { isAuth } = useAuth();
+  const { totalPrice, totalCount } = useSelector(selectCart);
 
   const cartBlock = () => {
     return (
       <div className="header__cart">
         <Link to="/cart" className="button">
-          <span>520 $</span>
+          <span>{totalPrice} $</span>
         </Link>
         <Link to="/cart" className="button button--cart">
           <svg
@@ -43,7 +46,7 @@ const Header = () => {
               strokeLinejoin="round"
             />
           </svg>
-          <span>3</span>
+          <span>{totalCount}</span>
         </Link>
       </div>
     );
