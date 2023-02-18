@@ -25,6 +25,13 @@ const Navigation = () => {
           </NavLink>
         </li>
       )}
+      {isAuth && (
+        <li className={style.item}>
+          <NavLink to="/cart" className={style.link}>
+            Cart
+          </NavLink>
+        </li>
+      )}
     </ul>
   );
 };

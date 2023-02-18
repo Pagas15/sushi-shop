@@ -6,7 +6,7 @@ import TitleBLock from '../components/TitleBlock';
 import { removeType, setCurrent } from '../store/slices/cartSlice';
 
 const CartPage = () => {
-  const listCartItems = useSelector((state) => state.cart.listCartItems);
+  const { listCartItems, totalCount, totalPrice } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   const onChangeCount = (id, count) => {
@@ -59,6 +59,20 @@ const CartPage = () => {
       <div className="cart__wrapper wrapper">
         <TitleBLock text="Cart :" />
         <ul className="cart__ul">{listCart}</ul>
+        <div className="cart__cnt">
+          <p className="cartItem__title">
+            Total products: <span>{totalCount} pcs.</span>
+          </p>
+          <p className="cartItem__title">
+            Order price: <span>{totalPrice} $</span>
+          </p>
+        </div>
+        <div className="cart__btns">
+          <Link to="/products" className="button button--borderWhite">
+            Back to products
+          </Link>
+          <button className="button">Pay now</button>
+        </div>
       </div>
     </section>
   );
