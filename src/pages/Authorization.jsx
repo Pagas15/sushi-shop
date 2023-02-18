@@ -5,15 +5,16 @@ import { Input } from '../components/Inputs';
 import TitleBLock from '../components/TitleBlock';
 import { setUser } from '../store/slices/userSlice';
 import { Navigate } from 'react-router-dom';
+import { useAuth } from '../hooks/use-auth';
 
 const Authorization = () => {
   const dispatch = useDispatch();
   const auth = getAuth();
-  const activeUser = !!useSelector((state) => state.user.id);
+  // const { isAuth } = useAuth();
 
-  if (activeUser) {
-    return <Navigate to="/" replace />;
-  }
+  // if (isAuth) {
+  //   return <Navigate to="/" replace />;
+  // }
 
   const handleLogin = (event) => {
     event.preventDefault();
