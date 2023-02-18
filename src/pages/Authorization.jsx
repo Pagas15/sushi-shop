@@ -1,11 +1,15 @@
 import React from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { useDispatch, useSelector } from 'react-redux';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from 'firebase/auth';
+import { useDispatch } from 'react-redux';
 import { Input } from '../components/Inputs';
 import TitleBLock from '../components/TitleBlock';
 import { setUser } from '../store/slices/userSlice';
-import { Navigate } from 'react-router-dom';
-import { useAuth } from '../hooks/use-auth';
+import { auth as googleAuth, provider } from '../firebase';
 
 const Authorization = () => {
   const dispatch = useDispatch();
@@ -55,6 +59,26 @@ const Authorization = () => {
         console.log('ERROR! ERRROR CODE: ', error.code, error.message);
       });
   };
+
+  const handleSignInGoogle = () => {
+    signInWithPopup(googleAuth, provider)
+      .then(({ user }) => {
+        dispatch(
+          setUser({
+            email: user.email,
+            token: user.uid,
+            id: user.accessToken,
+            avatar: user.photoURL,
+            number: user.phoneNumber,
+            name: user.displayName,
+          }),
+        );
+      })
+      .catch((error) => {
+        alert('An error occurred, please try again later');
+        console.log('ERROR! ERRROR CODE: ', error.code, error.message);
+      });
+  };
   return (
     <section className="authorisation">
       <div className="authorisation__wrapper wrapper">
@@ -74,6 +98,11 @@ const Authorization = () => {
             <button className="button button--square">Sign up</button>
           </form>
         </div>
+      </div>
+      <div className="authorisation__wrapper wrapper authorisation__otherMethod">
+        <button className="button button--square" onClick={handleSignInGoogle}>
+          Sign in with google
+        </button>
       </div>
     </section>
   );
