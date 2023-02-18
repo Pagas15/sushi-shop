@@ -9,9 +9,7 @@ const CardPage = () => {
   const [sushi, setSushi] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
-  const onAddToCart = useToCart(() => {
-    console.log('No log in');
-  });
+  const [onClick, element] = useToCart();
 
   useEffect(() => {
     axios
@@ -30,7 +28,7 @@ const CardPage = () => {
   }
 
   const onClickAdd = () => {
-    onAddToCart(sushi);
+    onClick(sushi);
   };
 
   return (
@@ -48,6 +46,7 @@ const CardPage = () => {
           </button>
         </div>
       </div>
+      {element}
     </section>
   );
 };

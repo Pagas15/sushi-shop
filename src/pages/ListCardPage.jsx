@@ -12,10 +12,7 @@ const ListCardPage = () => {
   const dispatch = useDispatch();
   const { listSushi, status } = useSelector((state) => state.sushi);
   const { sort, category } = useSelector((state) => state.filters);
-  const onAddToCart = useToCart(() => {
-    console.log('No log in');
-  });
-
+  const [onClick, element] = useToCart();
   const request = () => {
     const obj = {
       sortBy:
@@ -40,7 +37,7 @@ const ListCardPage = () => {
 
   const listSushiComponent = listSushi.map((item) => {
     const onClickAdd = () => {
-      onAddToCart(item);
+      onClick(item);
     };
     return (
       <ProductCard onClickAdd={onClickAdd} key={item.id} {...item} modifier="products__item" />
@@ -56,6 +53,7 @@ const ListCardPage = () => {
         <TitleBLock text="All sushi" />
         <ul className="products__list">{listSushiComponent}</ul>
       </div>
+      {element}
     </section>
   );
 };
