@@ -44,7 +44,7 @@ const ListCardPage = () => {
         <div className="products__filters">
           <Category /> <Sort />
         </div>
-        <TitleBLock text="Oll sushi" />
+        <TitleBLock text="All sushi" />
         <ul className="products__list">{listSushiComponent}</ul>
       </div>
     </section>
