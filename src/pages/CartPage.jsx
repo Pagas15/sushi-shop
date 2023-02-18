@@ -1,9 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import CartEmpty from '../components/CartEmpty';
 import Counter from '../components/Counter';
 import TitleBLock from '../components/TitleBlock';
-import { removeType, setCurrent } from '../store/slices/cartSlice';
+import { removeType, setCurrent, clearCart } from '../store/slices/cartSlice';
 
 const CartPage = () => {
   const { listCartItems, totalCount, totalPrice } = useSelector((state) => state.cart);
@@ -15,6 +16,10 @@ const CartPage = () => {
 
   const onRemoveType = (id) => {
     dispatch(removeType(id));
+  };
+
+  const onClearCart = () => {
+    dispatch(clearCart());
   };
 
   const listCart = listCartItems.map((item) => {
@@ -54,10 +59,16 @@ const CartPage = () => {
       </li>
     );
   });
-  return (
-    <section className="cart">
-      <div className="cart__wrapper wrapper">
-        <TitleBLock text="Cart :" />
+
+  const cartSomes = () => {
+    return (
+      <>
+        <div className="cart__top">
+          <TitleBLock text="Cart :" />{' '}
+          <button className="cartItem__title" onClick={onClearCart}>
+            Clear cart
+          </button>
+        </div>
         <ul className="cart__ul">{listCart}</ul>
         <div className="cart__cnt">
           <p className="cartItem__title">
@@ -73,7 +84,12 @@ const CartPage = () => {
           </Link>
           <button className="button">Pay now</button>
         </div>
-      </div>
+      </>
+    );
+  };
+  return (
+    <section className="cart">
+      <div className="cart__wrapper wrapper">{totalCount < 1 ? <CartEmpty /> : cartSomes()}</div>
     </section>
   );
 };
