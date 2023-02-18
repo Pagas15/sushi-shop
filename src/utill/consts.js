@@ -1,6 +1,6 @@
 export const API_SUSHI = 'https://63617ea467d3b7a0a6c7f1ef.mockapi.io/api/pizzas/sushi';
 export const VARIANT_CATEGORY = {
-  0: 'Oll',
+  0: 'All',
   1: 'Sets',
   2: 'Rolls',
 };
