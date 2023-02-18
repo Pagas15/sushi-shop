@@ -19,8 +19,8 @@ const Header = () => {
         </Link>
         <Link to="/cart" className="button button--cart">
           <svg
-            width={20}
-            height={20}
+            width="20px"
+            height="20px"
             viewBox="0 0 18 18"
             fill="none"
             xmlns="http://www.w3.org/2000/svg">

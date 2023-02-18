@@ -5,13 +5,16 @@ import Category from '../components/Category';
 import ProductCard from '../components/Product/ProductCard';
 import Sort from '../components/Sort';
 import TitleBLock from '../components/TitleBlock';
-import { addToCart } from '../store/slices/cartSlice';
+import { useToCart } from '../hooks/use-add-to-cart';
 import { fetchSushi } from '../store/slices/sushiSlice';
 
 const ListCardPage = () => {
   const dispatch = useDispatch();
   const { listSushi, status } = useSelector((state) => state.sushi);
   const { sort, category } = useSelector((state) => state.filters);
+  const onAddToCart = useToCart(() => {
+    console.log('No log in');
+  });
 
   const request = () => {
     const obj = {
@@ -37,7 +40,7 @@ const ListCardPage = () => {
 
   const listSushiComponent = listSushi.map((item) => {
     const onClickAdd = () => {
-      dispatch(addToCart(item));
+      onAddToCart(item);
     };
     return (
       <ProductCard onClickAdd={onClickAdd} key={item.id} {...item} modifier="products__item" />

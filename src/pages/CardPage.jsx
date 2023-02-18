@@ -1,16 +1,17 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
-import { addToCart } from '../store/slices/cartSlice';
+import { useToCart } from '../hooks/use-add-to-cart';
 import { API_SUSHI } from '../utill/consts';
 
 const CardPage = () => {
   const [sushi, setSushi] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const onAddToCart = useToCart(() => {
+    console.log('No log in');
+  });
 
   useEffect(() => {
     axios
@@ -29,7 +30,7 @@ const CardPage = () => {
   }
 
   const onClickAdd = () => {
-    dispatch(addToCart(sushi));
+    onAddToCart(sushi);
   };
 
   return (
