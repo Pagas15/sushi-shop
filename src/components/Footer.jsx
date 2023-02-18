@@ -21,29 +21,32 @@ const Footer = () => {
             </a>
           </li>
           <li className="footer__linksItem">
-            <a href="/" className="footer__linksLink">
+            <Link to="/products" className="footer__linksLink">
               Products
-            </a>
+            </Link>
           </li>
           <li className="footer__linksItem">
-            <a href="/" className="footer__linksLink">
+            <a
+              href="https://github.com/Pagas15/sushi-shop"
+              target="_blank"
+              className="footer__linksLink">
               GitHub
             </a>
           </li>
           <li className="footer__linksItem">
-            <a href="/" className="footer__linksLink">
+            <a href="/" className="footer__linksLink" target="_blank">
               Some text
             </a>
           </li>
           <li className="footer__linksItem">
-            <a href="/" className="footer__linksLink">
+            <a href="/" className="footer__linksLink" target="_blank">
               Some text
             </a>
           </li>
         </ul>
         <ul className="footer__social">
           <li className="footer__socialItem">
-            <a href="/" className="footer__socialLink">
+            <a href="https://t.me/Pagas15" target="_blank" className="footer__socialLink">
               <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <style dangerouslySetInnerHTML={{ __html: '.cls-1{fill:none;}' }} />
@@ -62,7 +65,7 @@ const Footer = () => {
             </a>
           </li>
           <li className="footer__socialItem">
-            <a href="/" className="footer__socialLink">
+            <a href="https://github.com/Pagas15" target="_blank" className="footer__socialLink">
               <svg
                 height="512px"
                 id="Layer_1"
@@ -90,7 +93,10 @@ const Footer = () => {
             </a>
           </li>
           <li className="footer__socialItem">
-            <a href="/" className="footer__socialLink">
+            <a
+              href="https://www.linkedin.com/in/pagas15/"
+              target="_blank"
+              className="footer__socialLink">
               <svg
                 height="100%"
                 style={{
