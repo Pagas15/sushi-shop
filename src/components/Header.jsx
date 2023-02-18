@@ -49,10 +49,10 @@ const Header = () => {
           </Link>
         </div> */}
         <div className="header__cart">
-          <Link to="/cart" className="button">
+          <Link to="/authorization" className="button">
             <span>Log in</span>
           </Link>
-          <Link to="/cart" className="button">
+          <Link to="/authorization" className="button">
             <span>Sing up</span>
           </Link>
         </div>

@@ -35,8 +35,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-left: 18px;
-      padding-right: 14px;
+      &:first-child {
+        padding-left: 18px;
+        padding-right: 14px;
+      }
+      &:last-child {
+        padding-left: 14px;
+        padding-right: 18px;
+      }
       border-radius: 0;
       border: none;
       border-right: 2px solid #ffffff;
